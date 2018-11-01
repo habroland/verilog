@@ -15,12 +15,7 @@ cnt <= 3'b000; // start at zero
 
 end
 
-slowerClock newClock(
-		.refclk(clk),   //  refclk.clk
-		.outclk_0(myclk) // outclk0.clk
-	);
-
-always @(posedge myclk) begin
+always @(posedge clk) begin
 if (run) begin
 if (dir) cnt <= cnt + 3'b001; // count up
 else cnt <= cnt - 3'b001; // count down
